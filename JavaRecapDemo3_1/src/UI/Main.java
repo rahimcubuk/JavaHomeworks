@@ -13,7 +13,7 @@ public class Main {
 		BaseCustomerManager starbucksCustomerManager = new StarbucksCustomerManager(new PersonCheckManager());
 
 		Customer customer1 = new Customer(1, "Rahim", "1994", "21260425136");
-		Customer customer2 = new Customer(1, "Elif", "1995", "32771095060");
+		Customer customer2 = new Customer(1, "Elif", "1995", "12345678999");
 		
 		starbucksCustomerManager.save(customer1);
 		starbucksCustomerManager.save(customer2);
