@@ -6,9 +6,9 @@
 
 ### JavaRecapDemo2
 * kodlama.io ileri java kampı 3. gün ödevidir.
-* 
+
 ### JavaRecapDemo3
-#### JavaRecapDemo3_1
-* kodlama.io ileri java kampı 4. gün 2. ödevidir.
-#### JavaRecapDemo3_2
-* kodlama.io ileri java kampı 4. gün 3. ödevidir.
+* #### JavaRecapDemo3_1
+* * kodlama.io ileri java kampı 4. gün 2. ödevidir.
+* #### JavaRecapDemo3_2
+* * kodlama.io ileri java kampı 4. gün 3. ödevidir.
