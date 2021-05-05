@@ -2,14 +2,16 @@ package Entities;
 
 public class Customer implements IEntity {
 	private int id;
-	private String name;
-	private String dateOfBirth;
+	private String firstName;
+	private String lastName;
+	private int dateOfBirth;
 	private String nationaltyId;
 	
-	public Customer(int id, String name, String dateOfBirth, String nationaltyId) {
+	public Customer(int id, String firstName, String lastName, int dateOfBirth, String nationaltyId) {
 		super();
 		this.id = id;
-		this.name = name;
+		this.firstName = firstName;
+		this.lastName = lastName;
 		this.dateOfBirth = dateOfBirth;
 		this.nationaltyId = nationaltyId;
 	}
@@ -20,16 +22,26 @@ public class Customer implements IEntity {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getName() {
-		return name;
+	public String getFirstName() {
+		return firstName;
 	}
-	public void setName(String name) {
-		this.name = name;
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
-	public String getDateOfBirth() {
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public int getDateOfBirth() {
 		return dateOfBirth;
 	}
-	public void setDateOfBirth(String dateOfBirth) {
+	public void setDateOfBirth(int dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
 	public String getNationaltyId() {
