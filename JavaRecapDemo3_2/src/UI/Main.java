@@ -1,5 +1,7 @@
 package UI;
 
+import java.rmi.RemoteException;
+
 import Adaptors.MernisCheckManager;
 import Adaptors.PersonCheckManager;
 import Business.Concrete.CampaignManager;
@@ -15,7 +17,7 @@ import Loggers.SmsLogger;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws NumberFormatException, RemoteException {
 		/*
 		 * KULLANICI ISLEMLERI
 		 * Yeni Kullanýcý Girme.

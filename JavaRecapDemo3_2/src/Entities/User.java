@@ -2,16 +2,16 @@ package Entities;
 
 public class User implements IEntity {
 	private int id;
-	private String firtName;
+	private String firstName;
 	private String lastName;
 	private String nationalId;
 	private String yearOfBirth;
 	private boolean status;
 	
-	public User(int id, String firtName, String lastName, String nationalId, String yearOfBirth, boolean status) {
+	public User(int id, String firstName, String lastName, String nationalId, String yearOfBirth, boolean status) {
 		super();
 		this.id = id;
-		this.firtName = firtName;
+		this.firstName = firstName;
 		this.lastName = lastName;
 		this.nationalId = nationalId;
 		this.yearOfBirth = yearOfBirth;
@@ -24,11 +24,11 @@ public class User implements IEntity {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getFirtName() {
-		return firtName;
+	public String getFirstName() {
+		return firstName;
 	}
-	public void setFirtName(String firtName) {
-		this.firtName = firtName;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 	public String getLastName() {
 		return lastName;

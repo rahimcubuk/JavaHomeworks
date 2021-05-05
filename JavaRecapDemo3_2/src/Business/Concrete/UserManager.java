@@ -1,10 +1,14 @@
 package Business.Concrete;
 
 import Business.Abstract.IUserService;
+
+import java.rmi.RemoteException;
+
 import Adaptors.IPersonCheckService;
 import Entities.User;
 import Loggers.ILogger;
 import Utils.BusinessRules;
+import Utils.LoggerAspect;
 import Utils.Result;
 
 public class UserManager implements IUserService {
@@ -19,64 +23,60 @@ public class UserManager implements IUserService {
 
 	/*
 	 * BUSINESS RULES
-	 * */
-	private Result CheckIfRealPerson(User user){
-		if(!checkService.checkIfRealPerson(user)) {
+	 */
+	private Result CheckIfRealPerson(User user) throws NumberFormatException, RemoteException {
+		if (!checkService.checkIfRealPerson(user)) {
 			return new Result("Oyuncu bilgileri hatalýdýr.", false);
 		}
-		return new Result("Satýlabilir.",true);
+		return new Result("Satýlabilir.", true);
 	}
-	
+
+	/*
+	 * BUSINESS Methods
+	 */
 	@Override
-	public void add(User user) {
-		
+	public void add(User user) throws NumberFormatException, RemoteException {
+
 		Result result = BusinessRules.Run(CheckIfRealPerson(user));
-		
+
 		if (result == null) {
-			System.out.println(user.getFirtName() + " " + user.getLastName() + " isimli oyuncu sisteme kaydedildi.");
-			for (ILogger logger : loggers) {
-				logger.log(user.getFirtName() + " " + user.getLastName() + " isimli oyuncu sisteme kaydedildi.");
-			}
+			System.out.println(user.getFirstName() + " " + user.getLastName() + " isimli oyuncu sisteme kaydedildi.");
+			LoggerAspect.run(user.getFirstName() + " " + user.getLastName() + " isimli oyuncu sisteme kaydedildi.",
+					loggers);
 		} else {
 			System.out.println(result.getMessage());
-			for (ILogger logger : loggers) {
-				logger.log(result.getMessage());
-			}
+			LoggerAspect.run(result.getMessage(), loggers);
 		}
 	}
 
 	@Override
-	public void update(User user) {
+	public void update(User user) throws NumberFormatException, RemoteException {
 		Result result = BusinessRules.Run(CheckIfRealPerson(user));
-		
+
 		if (result == null) {
-			System.out.println(user.getFirtName() + " " + user.getLastName() + " isimli oyuncu bilgileri güncellendi.");
-			for (ILogger logger : loggers) {
-				logger.log(user.getFirtName() + " " + user.getLastName() + " isimli oyuncu bilgileri güncellendi.");
-			}
+			System.out
+					.println(user.getFirstName() + " " + user.getLastName() + " isimli oyuncu bilgileri güncellendi.");
+			LoggerAspect.run(user.getFirstName() + " " + user.getLastName() + " isimli oyuncu bilgileri güncellendi.",
+					loggers);
 		} else {
 			System.out.println(result.getMessage());
-			for (ILogger logger : loggers) {
-				logger.log(result.getMessage());
-			}
+			LoggerAspect.run(result.getMessage(), loggers);
 		}
 	}
 
 	@Override
-	public void delete(User user) {
+	public void delete(User user) throws NumberFormatException, RemoteException {
 		Result result = BusinessRules.Run(CheckIfRealPerson(user));
-		
+
 		if (result == null) {
 			user.setStatus(false);
-			System.out.println(user.getFirtName() + " " + user.getLastName() + " isimli oyuncu bilgileri güncellendi.");
-			for (ILogger logger : loggers) {
-				logger.log(user.getFirtName() + " " + user.getLastName() + " isimli oyuncu bilgileri güncellendi.");
-			}
+			System.out
+					.println(user.getFirstName() + " " + user.getLastName() + " isimli oyuncu bilgileri güncellendi.");
+			LoggerAspect.run(user.getFirstName() + " " + user.getLastName() + " isimli oyuncu bilgileri güncellendi.",
+					loggers);
 		} else {
 			System.out.println(result.getMessage());
-			for (ILogger logger : loggers) {
-				logger.log(result.getMessage());
-			}
+			LoggerAspect.run(result.getMessage(), loggers);
 		}
 	}
 }
