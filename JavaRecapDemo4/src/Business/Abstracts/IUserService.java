@@ -1,7 +1,5 @@
 package Business.Abstracts;
 
-import java.util.List;
-
 import Entities.Concretes.User;
 
 public interface IUserService {

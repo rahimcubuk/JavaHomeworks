@@ -1,7 +1,6 @@
 package Business.Concretes;
 
 import java.util.List;
-import java.util.Random;
 import java.util.Scanner;
 
 import Business.Abstracts.IUserService;
@@ -16,7 +15,7 @@ public class UserManager implements IUserService {
 	private IUserDao userDao;
 	private IVerificationService verificationService;
 	private List<User> users;
-
+	private Scanner read;
 	public UserManager(IUserDao userDao, IVerificationService verificationService, List<User> users) {
 		this.userDao = userDao;
 		this.verificationService = verificationService;
@@ -63,7 +62,7 @@ public class UserManager implements IUserService {
 			userDao.delete(users.indexOf(user));
 			System.out.println("Kullanýcý bilgileri silindi.");
 		} else {
-			System.out.println(businessRulesResult.getMessage());
+			System.out.println("Kullanýcý bilgileri hatalý.");
 		}
 	}
 
@@ -84,7 +83,7 @@ public class UserManager implements IUserService {
 
 	@Override
 	public void verificationCode(String email) {
-		Scanner read = new Scanner(System.in);
+		this.read = new Scanner(System.in);
 		int code = 100000 + (int) (Math.random() * 899999);
 		int userCode;
 		System.out.println(email + " adresine gönderilen 6 haneli kodu girin.");
