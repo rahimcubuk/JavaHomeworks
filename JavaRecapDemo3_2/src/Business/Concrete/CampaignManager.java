@@ -31,5 +31,4 @@ public class CampaignManager implements ICampaignService {
 		System.out.println(campaign.getDescription() + " kampanya bilgileri kaldýrýldý.");
 		LoggerAspect.run(campaign.getDescription() + " kampanya bilgileri kaldýrýldý.", loggers);
 	}
-
 }

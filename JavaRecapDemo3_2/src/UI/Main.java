@@ -2,18 +2,10 @@ package UI;
 
 import java.rmi.RemoteException;
 
-import Adaptors.MernisCheckManager;
-import Adaptors.PersonCheckManager;
-import Business.Concrete.CampaignManager;
-import Business.Concrete.GameManager;
-import Business.Concrete.OrderManager;
-import Business.Concrete.UserManager;
-import Entities.Campaign;
-import Entities.Game;
-import Entities.Order;
-import Entities.User;
-import Loggers.FileLogger;
-import Loggers.SmsLogger;
+import Adaptors.*;
+import Business.Concrete.*;
+import Entities.*;
+import Loggers.*;
 
 public class Main {
 
