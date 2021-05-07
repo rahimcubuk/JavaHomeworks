@@ -18,7 +18,8 @@ public class JUserDao implements IUserDao {
 	}
 
 	@Override
-	public void delete(int index) {
+	public void delete(User user) {
+		int index = users.indexOf(user);
 		users.remove(index);
 	}
 
@@ -48,6 +49,16 @@ public class JUserDao implements IUserDao {
 				return users.get(index);
 			}
 			index++;
+		}
+		return null;
+	}
+
+	@Override
+	public User getByEmail(String email) {
+		for (User user : users) {
+			if(user.getEmail() == email) {
+				return user;
+			}
 		}
 		return null;
 	}

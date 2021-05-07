@@ -14,24 +14,23 @@ public class UserManager implements IUserService {
 
 	private IUserDao userDao;
 	private IVerificationService verificationService;
-	private List<User> users;
 	private Scanner read;
-	public UserManager(IUserDao userDao, IVerificationService verificationService, List<User> users) {
+	public UserManager(IUserDao userDao, IVerificationService verificationService) {
 		this.userDao = userDao;
 		this.verificationService = verificationService;
-		this.users = users;
 	}
 
 	/*
 	 * BUSINESS RULES
 	 */
 	private Result CheckIfUserExistByEmail(String email) {
-		for (User data : users) {
-			if (data.getEmail() == email) {
-				return new Result("Bu mail adresi ile kayýtlý bir kullanýcý var.", false);
-			}
+		var user = userDao.getByEmail(email);
+		if(user == null) {
+			return new Result("Bu mail adresi ile kayýtlý bir kullanýcý yok.", true);
 		}
-		return new Result("Bu mail adresi ile kayýtlý bir kullanýcý yok.", true);
+		else {
+			return new Result("Bu mail adresi baþka bir kullanýcý tarafýndan kullanýlmakta.", false);
+		}
 	}
 
 	/*
@@ -56,10 +55,9 @@ public class UserManager implements IUserService {
 
 	@Override
 	public void delete(User user) {
-
 		Result businessRulesResult = BusinessRules.Run(CheckIfUserExistByEmail(user.getEmail()));
 		if (businessRulesResult != null) {
-			userDao.delete(users.indexOf(user));
+			userDao.delete(user);
 			System.out.println("Kullanýcý bilgileri silindi.");
 		} else {
 			System.out.println("Kullanýcý bilgileri hatalý.");

@@ -13,7 +13,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		List<User> users = new ArrayList<User>();
-		IUserService userService = new UserManager(new JUserDao(users), new JUserValidatateManager(), users);
+		IUserService userService = new UserManager(new JUserDao(users), new JUserValidatateManager());
 
 		User validUser = new User(1,"Rahim","Çubuk","rahimcubuk@gmail.com","123456");
 		User invalidUser = new User(2,"Rahim","Ç","rahimgmail.com","1256");
