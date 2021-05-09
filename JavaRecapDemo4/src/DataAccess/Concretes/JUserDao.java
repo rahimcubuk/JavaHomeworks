@@ -26,19 +26,13 @@ public class JUserDao implements IUserDao {
 	@Override
 	public void update(User user) {
 		int index = 0;
-		User newUser = new User();
 		for (User oldUser : users) {
 			if(oldUser.getEmail() == user.getEmail()) {
-				newUser = users.get(index);
 				break;
 			}
 			index++;
 		}
-		newUser.setEmail(user.getEmail());
-		newUser.setFirstName(user.getFirstName());
-		newUser.setLastName(user.getLastName());
-		newUser.setId(user.getId());
-		newUser.setPassword(user.getPassword());
+		users.add(index, user);
 	}
 
 	@Override
