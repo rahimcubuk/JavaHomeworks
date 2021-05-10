@@ -9,12 +9,12 @@ kodlama.io ileri Java kampı 6. gün ödevinden başlayarak devam edecek kamp ge
 * JDK 16
 * Compiler compliance level: 15
 * Spring initializr configration: 
-* * Project -> Maven
-* * Language -> Java
-* * Spring Boot -> v2.4.5
-* * Dependencies: 
-* * * Spring Boot DevTools
-* * * Lombok
-* * * Spring Web
-* * * Spring Data Jpa
-* * * PostgreSQL Driver  
+  * Project -> Maven
+  * Language -> Java
+  * Spring Boot -> v2.4.5
+  * Dependencies: 
+    * Spring Boot DevTools
+    * Lombok
+    * Spring Web
+    * Spring Data Jpa
+    * PostgreSQL Driver  
